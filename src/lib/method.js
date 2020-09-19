@@ -117,38 +117,6 @@ const save = async (
     return { data };
 };
 
-const saveUser = async (
-    id,
-    data,
-    previous,
-    resourceName,
-    resourcePath,
-    firebaseSaveFilter,
-    uploadResults,
-    isNew,
-    timestampFieldNames
-) => {
-    if (uploadResults) {
-        uploadResults.map(uploadResult => (uploadResult ? Object.assign(data, uploadResult) : false));
-    }
-
-    if (isNew) {
-        Object.assign(data, { [timestampFieldNames.createdAt]: new Date() });
-    }
-
-    data = Object.assign(previous, { [timestampFieldNames.updatedAt]: new Date() }, data);
-
-    if (!data.id) {
-        data.id = id;
-    }
-
-    await firebase
-        .firestore()
-        .doc(`${resourcePath}/${data.id}`)
-        .set(firebaseSaveFilter(data));
-    return { data };
-};
-
 const del = async (id, resourceName, resourcePath, uploadFields) => {
     if (uploadFields.length) {
         uploadFields.map(fieldName =>
@@ -333,5 +301,4 @@ export default {
     getManyReference,
     addUploadFeature,
     convertFileToBase64,
-    saveUser
 };
