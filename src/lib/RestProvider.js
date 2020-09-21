@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 import Methods from './method';
-import MethodsUser from './methodUser';
+// import MethodsUser from './methodUser';
 
 import { GET_LIST, GET_ONE, GET_MANY, GET_MANY_REFERENCE, CREATE, UPDATE, DELETE, DELETE_MANY } from 'react-admin';
 
@@ -45,7 +45,7 @@ const RestProvider = (firebaseConfig = {}, options = {}) => {
     const getManyReference = options.getManyReference || Methods.getManyReference;
     const delMany = options.delMany || Methods.delMany;
     const getList = options.getList || Methods.getList;
-    const saveUser = options.save || MethodsUser.saveUser;
+    const saveUser = options.save || Methods.saveUser;
 
     const firebaseSaveFilter = options.firebaseSaveFilter ? options.firebaseSaveFilter : data => data;
     // const firebaseGetFilter = options.firebaseGetFilter ? options.firebaseGetFilter : data => data;
@@ -67,7 +67,8 @@ const RestProvider = (firebaseConfig = {}, options = {}) => {
         }
         resourcesUploadFields[name] = uploadFields || [];
         resourcesPaths[name] = path || name;
-        resourcesData[name] = {};
+        return resourcesData[name] = {};
+
     });
 
     /**
