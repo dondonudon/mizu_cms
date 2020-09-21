@@ -117,6 +117,63 @@ const save = async (
     return { data };
 };
 
+const saveUser = async (
+    id,
+    data,
+    previous,
+    resourceName,
+    resourcePath,
+    firebaseSaveFilter,
+    uploadResults,
+    isNew,
+    timestampFieldNames
+) => {
+    if (uploadResults) {
+        uploadResults.map(uploadResult => (uploadResult ? Object.assign(data, uploadResult) : false));
+    }
+
+    if (isNew) {
+        Object.assign(data, { [timestampFieldNames.createdAt]: new Date(), email: data.noHp + "@mizu.com", type: "mitra", jmlOrder: 0, ratingMitra: 5 });
+    }
+
+    data = Object.assign(previous, { [timestampFieldNames.updatedAt]: new Date() }, data);
+    console.log(data.id);
+    if (data.id === id) {
+        await firebase
+            .firestore()
+            .doc(`${resourcePath}/${data.id}`)
+            .update(firebaseSaveFilter(data));
+    } else {
+        await firebase
+            .firestore()
+            .doc(`${resourcePath}/${data.id}`)
+            .delete();
+
+        data.id = id;
+
+        await firebase.auth().createUserWithEmailAndPassword(data.id, data.password)
+            .then(function (currentUser) {
+                console.log("uid :" + currentUser.user.uid);
+
+                Object.assign(data, { [timestampFieldNames.createdAt]: new Date(), email: data.noHp + "@mizu.com", type: "mitra", jmlOrder: 0, ratingMitra: 5, uid: currentUser.user.uid });
+
+                firebase
+                    .firestore()
+                    .doc(`${resourcePath}/${data.id}`)
+                    .set(firebaseSaveFilter(data));
+            }).catch(function (error) {
+                //Handle error
+            });
+    }
+
+
+
+    console.log(data.id);
+
+    return { data };
+
+};
+
 const del = async (id, resourceName, resourcePath, uploadFields) => {
     if (uploadFields.length) {
         uploadFields.map(fieldName =>
@@ -218,7 +275,8 @@ function recusivelyCheckObjectValue(data) {
     if (isObject) {
         Object.keys(data).map(key => {
             const value = data[key];
-            data[key] = recusivelyCheckObjectValue(value);
+            return data[key] = recusivelyCheckObjectValue(value);
+
         });
         return data;
     }
@@ -261,7 +319,7 @@ const getList = async (params, resourceName, resourceData) => {
         const data = recusivelyCheckObjectValue(values) ? values.slice(_start, _end) : [];
         const ids = keys.slice(_start, _end) || [];
         const total = values ? values.length : 0;
-        console.log(data);
+        // console.log(data);
         return { data, ids, total };
     } else {
         throw new Error('Error processing request');
@@ -292,6 +350,7 @@ const getManyReference = async (params, resourceName, resourceData) => {
 export default {
     upload,
     save,
+    saveUser,
     del,
     delMany,
     getItemID,
