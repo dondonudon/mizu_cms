@@ -3,17 +3,22 @@ import { UserList, UserShow, UserCreate, UserEdit } from "./users";
 import {
   OrderList, OrderShow,
   // OrderCreate, 
-  OrderEdit
+  // OrderEdit
 } from "./order";
 import {
   SaldoList, SaldoShow,
   // SaldoCreate,
   SaldoEdit
 } from "./saldo";
+import {
+  VoucherList,
+  //  VoucherShow, VoucherCreate, VoucherEdit
+} from "./voucher";
 import { Admin, Resource } from "react-admin";
 import PostIcon from '@material-ui/icons/AccountCircle';
 import OrderIcon from '@material-ui/icons/AddShoppingCart';
 import SaldoIcon from '@material-ui/icons/Money';
+import VoucherIcon from '@material-ui/icons/FiberPin';
 import CustomLoginPage from './CustomLoginPage';
 import RestProvider from './lib/RestProvider';
 import AuthProvider from './lib/AuthProvider';
@@ -61,6 +66,14 @@ class App extends React.Component {
           show={SaldoShow}
           // create={SaldoCreate}
           edit={SaldoEdit}
+        />
+        <Resource
+          name="voucher" options={{ label: 'Voucher' }}
+          icon={VoucherIcon}
+          list={VoucherList}
+        // show={VoucherShow}
+        // create={VoucherCreate}
+        // edit={VoucherEdit}
         />
       </Admin>
     );
