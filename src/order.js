@@ -17,7 +17,7 @@ import {
     TextInput,
     // NumberInput,
     ShowButton,
-    EditButton,
+    // EditButton,
     // DeleteButton,
     // RichTextField,
     SelectField,
@@ -39,7 +39,7 @@ const OrderFilter = (props) => (
             { id: 2, name: 'OTW' },
             { id: 3, name: 'Start' },
             { id: 4, name: 'Finish' },
-            { id: 5, name: 'Not Found' },
+            // { id: 5, name: 'Not Found' },
             { id: 6, name: 'Not Found ' },
             { id: 7, name: 'Cancel Mitra' },
             { id: 8, name: 'Cancel Customer' },
@@ -72,7 +72,7 @@ export const OrderList = (props) => (
                 { id: 7, name: 'Cancel Mitra' },
                 { id: 8, name: 'Cancel Customer' },
             ]} />
-            <DateField source="time_order" showTime />
+            <DateField source="time_order" showTime locales="en-gb" />
             <ShowButton label="" />
             {/* <EditButton label="" /> */}
             {/* <DeleteButton label="" redirect={false} /> */}
@@ -84,14 +84,41 @@ export const OrderShow = (props) => (
     <Show {...props}>
         <SimpleShowLayout>
             <TextField source="id" />
-            <TextField source="email_" />
-            {/* <ReferenceField label="Comment" source="title" reference="comments">
-        <TextField source="title" />
-      </ReferenceField> */}
-            <TextField source="name" />
-            <TextField source="gender" />
-            <TextField source="nik" />
-            <FileField source="file.src" title="file.title" />
+            {/* <TextField source="emailMitra" /> */}
+            <TextField source="order_id" />
+            <TextField source="email_cust" />
+            <TextField source="namaMitra" />
+            <TextField source="namaCust" />
+            <TextField source="spid" />
+            <TextField source="serviceName" />
+            <TextField source="harga" />
+            <TextField source="nilaiVoucher" />
+            <TextField source="voucher" />
+            <TextField source="hargaAkhir" />
+            <TextField source="genderCust" />
+            <TextField source="genderPref" />
+            <SelectField source="kotaId" choices={[
+                { id: 0, name: 'Semarang' },
+                { id: 1, name: 'Solo' },
+                { id: 2, name: 'Yogyakarta' },
+            ]} />
+            <TextField source="kodepos" />
+            <SelectField source="status" choices={[
+                { id: 0, name: 'New' },
+                { id: 1, name: 'Accept' },
+                { id: 2, name: 'OTW' },
+                { id: 3, name: 'Start' },
+                { id: 4, name: 'Finish' },
+                { id: 5, name: 'Not Found' },
+                { id: 6, name: 'Not Found' },
+                { id: 7, name: 'Cancel Mitra' },
+                { id: 8, name: 'Cancel Customer' },
+            ]} />
+            <TextField source="time_order" />
+            <TextField source="time_service" />
+            <TextField source="time_otw" />
+            <TextField source="time_start" />
+            <TextField source="time_finish" />
         </SimpleShowLayout>
     </Show>
 );
