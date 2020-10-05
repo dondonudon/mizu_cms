@@ -38,7 +38,6 @@ import {
   // DateField
 } from "react-admin";
 // import RichTextInput from "ra-input-rich-text";
-import Button from '@material-ui/core/Button';
 
 const UserFilter = (props) => (
   <Filter {...props}>
@@ -66,9 +65,6 @@ const UserEditToolbar = props => (
   </Toolbar>
 );
 
-const CustomButton = ({ record }) => (
-  <Button></Button>
-);
 
 export const UserList = (props) => (
   <List {...props}
@@ -84,6 +80,8 @@ export const UserList = (props) => (
       <TextField source="gender" label="Gender" />
       <BooleanField source="active" label="Active" />
       <TextField source="saldo" label="Saldo" />
+      <BooleanField source="status" label="Status" />
+      <TextField source="imei" label="IMEI" />
       <ShowButton label="" />
       <EditButton label="" />
       {/* <DeleteButton label="" redirect={false} /> */}
@@ -120,6 +118,9 @@ export const UserShow = (props) => (
       <TextField source="nik" />
       <TextField source="alamat" />
       <TextField source="emergency_number" />
+      <TextField source="noSk" />
+      <TextField source="imei" />
+      <TextField source="status" />
       <TextField source="foto" />
     </SimpleShowLayout>
   </Show>
@@ -152,7 +153,9 @@ export const UserCreate = (props) => (
       <TextInput source="nik" label="NIK" />
       <TextInput source="alamat" validate={[required()]} />
       <TextInput source="emergency_number" label="Emergency Number" />
+      <TextInput source="noSk" label="No SK" />
       <BooleanInput source="active" validate={[required()]} />
+      <BooleanInput source="status" validate={[required()]} />
       <NumberInput source="saldo" validate={[required()]} />
       <TextInput source="foto" label="Foto" />
       {/* <ImageInput source="foto" label="Foto" accept="image/*">
@@ -164,49 +167,52 @@ export const UserCreate = (props) => (
 
 export const UserEdit = (props) => (
   <Edit undoable={false} {...props}>
-    {/* <TabbedForm toolbar={<UserEditToolbar />}>
-      <FormTab label="Mitra"> */}
-    <SimpleForm toolbar={<UserEditToolbar />}>
-      <TextInput source="spid" label="SPID" options={{ disabled: true }} />
-      <TextInput source="noHp" label="No HP" />
-      <PasswordInput source="password" validate={[required()]} />
-      <TextInput source="email_" type="email" />
-      <TextInput source="name" />
-      <SelectInput source="gender" choices={[
-        { id: 'L', name: 'Laki-Laki' },
-        { id: 'P', name: 'Perempuan' },
-      ]} />
-      <SelectInput source="city" label="Kota" choices={[
-        { id: 1, name: 'Semarang' },
-        { id: 2, name: 'Solo' },
-        { id: 3, name: 'Yogyakarta' },
-      ]} />
-      <SelectInput source="vertical" label="Vertical" choices={[
-        { id: 1, name: 'Massage' },
-        { id: 2, name: 'Clean' },
-        { id: 3, name: 'Auto' },
-        { id: 4, name: 'Fix' },
-        { id: 5, name: 'Glam' },
-      ]} />
-      <TextInput source="nik" label="NIK" />
-      <TextInput source="alamat" />
-      <TextInput source="emergency_number" label="Emergency Number" />
-      <BooleanInput source="active" />
-      <NumberInput source="saldo" options={{ disabled: true }} />
-      <TextInput source="foto" label="Foto" />
-      {/* <ImageInput source="foto" label="Foto" accept="image/*">
+    <TabbedForm toolbar={<UserEditToolbar />}>
+      <FormTab label="Mitra">
+        {/* <SimpleForm toolbar={<UserEditToolbar />}> */}
+        <TextInput source="spid" label="SPID" options={{ disabled: true }} />
+        <TextInput source="noHp" label="No HP" />
+        <PasswordInput source="password" validate={[required()]} />
+        <TextInput source="email_" type="email" />
+        <TextInput source="name" />
+        <SelectInput source="gender" choices={[
+          { id: 'L', name: 'Laki-Laki' },
+          { id: 'P', name: 'Perempuan' },
+        ]} />
+        <SelectInput source="city" label="Kota" choices={[
+          { id: 1, name: 'Semarang' },
+          { id: 2, name: 'Solo' },
+          { id: 3, name: 'Yogyakarta' },
+        ]} />
+        <SelectInput source="vertical" label="Vertical" choices={[
+          { id: 1, name: 'Massage' },
+          { id: 2, name: 'Clean' },
+          { id: 3, name: 'Auto' },
+          { id: 4, name: 'Fix' },
+          { id: 5, name: 'Glam' },
+        ]} />
+        <TextInput source="nik" label="NIK" />
+        <TextInput source="alamat" />
+        <TextInput source="emergency_number" label="Emergency Number" />
+        <TextInput source="noSk" label="No SK" />
+        <BooleanInput source="active" />
+        <BooleanInput source="status" />
+        <TextInput source="imei" />
+        <NumberInput source="saldo" options={{ disabled: true }} />
+        <TextInput source="foto" label="Foto" />
+        {/* <ImageInput source="foto" label="Foto" accept="image/*">
         <ImageField source="foto" title="title" />
       </ImageInput> */}
-    </SimpleForm>
-    {/* </FormTab>
-      <FormTab label="TopUp">
+        {/* </SimpleForm> */}
+      </FormTab>
+      {/* <FormTab label="TopUp">
         <SelectInput source="order" label="Jenis Kredit" validate={[required()]} choices={[
           { id: 'T', name: 'TopUp' },
           { id: 'B', name: 'Bonus' },
         ]} />
         <NumberInput source="nominal" validate={[required()]} />
         <CustomButton />
-      </FormTab>
-    </TabbedForm> */}
+      </FormTab> */}
+    </TabbedForm>
   </Edit>
 );
