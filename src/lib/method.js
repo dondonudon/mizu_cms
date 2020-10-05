@@ -319,7 +319,7 @@ const getList = async (params, resourceName, resourceData) => {
         const data = recusivelyCheckObjectValue(values) ? values.slice(_start, _end) : [];
         const ids = keys.slice(_start, _end) || [];
         const total = values ? values.length : 0;
-        // console.log(data);
+        console.log(data);
         return { data, ids, total };
     } else {
         throw new Error('Error processing request');
