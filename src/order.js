@@ -60,6 +60,8 @@ export const OrderList = (props) => (
             <TextField source="namaMitra" />
             <TextField source="spid" />
             <TextField source="harga" />
+            <TextField source="voucher" />
+            <TextField source="nilaiVoucher" />
             {/* <TextField source="hargaAkhir" /> */}
             <SelectField source="status" choices={[
                 { id: 0, name: 'New' },
