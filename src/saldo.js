@@ -42,7 +42,10 @@ const SaldoFilter = (props) => (
 );
 
 export const SaldoList = (props) => (
-    <List {...props} filters={<SaldoFilter />} bulkActionButtons={false}>
+    <List {...props} filters={<SaldoFilter />}
+        bulkActionButtons={false}
+        sort={{ field: 'time', order: 'DESC' }}
+    >
         <Datagrid>
             <TextField source="namaMitra" />
             <TextField source="orderId" />
@@ -50,6 +53,7 @@ export const SaldoList = (props) => (
             <TextField source="nominal" />
             <TextField source="type" />
             <TextField source="isDone" />
+            <DateField source="time" />
             <ShowButton label="" />
             <EditButton label="" />
             {/* <DeleteButton label="" redirect={false} /> */}
