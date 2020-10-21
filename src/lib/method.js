@@ -316,9 +316,13 @@ const getList = async (params, resourceName, resourceData) => {
         const { page, perPage } = params.pagination;
         const _start = (page - 1) * perPage;
         const _end = page * perPage;
+        console.log('getList');
+        console.log(values);
+        // const data = values ? values.slice(_start, _end) : [];
         const data = recusivelyCheckObjectValue(values) ? values.slice(_start, _end) : [];
         const ids = keys.slice(_start, _end) || [];
         const total = values ? values.length : 0;
+        console.log('getListPagination');
         console.log(data);
         return { data, ids, total };
     } else {
