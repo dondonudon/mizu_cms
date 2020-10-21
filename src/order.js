@@ -25,14 +25,50 @@ import {
     FileField,
     FileInput,
     DateField,
+    ExportButton,
+    useListContext,
+    TopToolbar,
+    sanitizeListRestProps,
+    // Button
     // DateInput
 } from "react-admin";
 import RichTextInput from "ra-input-rich-text";
+// import { unparse as convertToCSV } from 'papaparse/papaparse.min';
+// import IconEvent from '@material-ui/icons/Event';
+
+
+const ListActions = (props) => {
+    const {
+        className,
+        exporter,
+        filters,
+        maxResults,
+        ...rest
+    } = props;
+    const {
+        currentSort,
+        resource,
+        filterValues,
+        total,
+    } = useListContext();
+    return (
+        <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
+            <ExportButton
+                delimiter={"/"}
+                disabled={total === 0}
+                resource={resource}
+                sort={currentSort}
+                filterValues={filterValues}
+                maxResults={maxResults}
+            />
+        </TopToolbar>
+    );
+};
 
 const OrderFilter = (props) => (
     <Filter context="order_id"  {...props}>
         <TextInput label="Order ID" source="order_id" alwaysOn />
-        <TextInput label="SPID" source="spid" />
+        <TextInput label="SPID" source="spid" alwaysOn />
         <SelectInput source="status" alwaysOn allowEmpty choices={[
             { id: 0, name: 'New' },
             { id: 1, name: 'Accept' },
@@ -43,16 +79,18 @@ const OrderFilter = (props) => (
             { id: 6, name: 'Not Found ' },
             { id: 7, name: 'Cancel Mitra' },
             { id: 8, name: 'Cancel Customer' },
+            { id: 9, name: 'Batal Pesan' },
         ]} />
-        {/* <DateInput label="Tanggal Order" source="time_order" showTime alwaysOn /> */}
     </Filter>
 );
 
 export const OrderList = (props) => (
     <List {...props}
+        actions={<ListActions />}
         filters={<OrderFilter />}
         bulkActionButtons={false}
-        sort={{ field: 'time_order', order: 'DESC' }}>
+        sort={{ field: 'time_order', order: 'DESC' }}
+    >
         <Datagrid >
             <TextField source="order_id" />
             <TextField source="serviceName" />
@@ -73,8 +111,10 @@ export const OrderList = (props) => (
                 { id: 6, name: 'Not Found' },
                 { id: 7, name: 'Cancel Mitra' },
                 { id: 8, name: 'Cancel Customer' },
+                { id: 9, name: 'Batal Pesan' },
             ]} />
             <DateField source="time_order" showTime locales="en-gb" />
+            {/* <TextField source="time_order" /> */}
             <ShowButton label="" />
             {/* <EditButton label="" /> */}
             {/* <DeleteButton label="" redirect={false} /> */}
@@ -100,9 +140,9 @@ export const OrderShow = (props) => (
             <TextField source="genderCust" />
             <TextField source="genderPref" />
             <SelectField source="kotaId" choices={[
-                { id: 0, name: 'Semarang' },
-                { id: 1, name: 'Solo' },
-                { id: 2, name: 'Yogyakarta' },
+                { id: 1, name: 'Semarang' },
+                { id: 2, name: 'Solo' },
+                { id: 3, name: 'Yogyakarta' },
             ]} />
             <TextField source="kodepos" />
             <SelectField source="status" choices={[
@@ -115,6 +155,7 @@ export const OrderShow = (props) => (
                 { id: 6, name: 'Not Found' },
                 { id: 7, name: 'Cancel Mitra' },
                 { id: 8, name: 'Cancel Customer' },
+                { id: 9, name: 'Batal Pesan' },
             ]} />
             <TextField source="time_order" />
             <TextField source="time_service" />
