@@ -1,4 +1,4 @@
-// in src/Saldo.js
+// in src/Voucher.js
 import * as React from "react";
 // tslint:disable-next-line:no-var-requires
 import {
@@ -16,7 +16,7 @@ import {
     DateField,
     TextInput,
     // ShowButton,
-    // EditButton,
+    EditButton,
     // DeleteButton,
     // RichTextField,
     SelectInput,
@@ -46,7 +46,7 @@ export const VoucherList = (props) => (
             <TextField source="nominal" />
             <TextField source="percentage" />
             {/* <ShowButton label="" /> */}
-            {/* <EditButton label="" /> */}
+            <EditButton label="" />
             {/* <DeleteButton label="" redirect={false} /> */}
         </Datagrid>
     </List>
@@ -69,8 +69,6 @@ export const VoucherShow = (props) => (
 export const VoucherCreate = (props) => (
     <Create {...props} >
         <SimpleForm>
-
-
             <NumberInput source="nominal" />
             <SelectInput source="type" choices={[
                 { id: 'CR', name: 'Credit' },
@@ -83,15 +81,10 @@ export const VoucherCreate = (props) => (
 export const VoucherEdit = (props) => (
     <Edit undoable={false} {...props}>
         <SimpleForm>
-            <TextInput source="namaMitra" options={{ disabled: true }} />
-            <TextInput source="orderId" options={{ disabled: true }} />
-            <TextInput source="spid" options={{ disabled: true }} />
-            <TextInput source="type" options={{ disabled: true }} />
+            <TextInput source="kodevoucher" options={{ disabled: true }} />
             <NumberInput source="nominal" options={{ disabled: true }} />
-            <SelectInput source="isDone" choices={[
-                { id: true, name: 'True' },
-                { id: false, name: 'False' },
-            ]} />
+            <NumberInput source="percentage" options={{ disabled: true }} />
+            <NumberInput source="kuota" />
         </SimpleForm>
     </Edit>
 );

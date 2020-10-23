@@ -12,7 +12,9 @@ import {
 } from "./saldo";
 import {
   VoucherList,
-  //  VoucherShow, VoucherCreate, VoucherEdit
+  VoucherEdit,
+  // VoucherShow,
+  //  VoucherCreate
 } from "./voucher";
 import { Admin, Resource } from "react-admin";
 import PostIcon from '@material-ui/icons/AccountCircle';
@@ -29,7 +31,7 @@ const options = {
   logging: true,
   rootRef: ''
 }
-const trackedResources = [{ name: 'users' }, { name: 'order' }, { name: 'saldo' }];
+const trackedResources = [{ name: 'users' }, { name: 'order' }, { name: 'saldo' }, { name: 'voucher' }];
 
 const dataProvider = RestProvider(config, { trackedResources });
 const authProvider = AuthProvider(config, options);
@@ -71,9 +73,9 @@ class App extends React.Component {
           name="voucher" options={{ label: 'Voucher' }}
           icon={VoucherIcon}
           list={VoucherList}
-        // show={VoucherShow}
-        // create={VoucherCreate}
-        // edit={VoucherEdit}
+          // show={VoucherShow}
+          // create={VoucherCreate}
+          edit={VoucherEdit}
         />
       </Admin>
     );
