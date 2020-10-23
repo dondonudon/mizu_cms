@@ -133,12 +133,15 @@ export const OrderShow = (props) => (
             <TextField source="namaCust" />
             <TextField source="spid" />
             <TextField source="serviceName" />
+            <TextField source="timer" />
             <TextField source="harga" />
             <TextField source="nilaiVoucher" />
             <TextField source="voucher" />
             <TextField source="hargaAkhir" />
             <TextField source="genderCust" />
             <TextField source="genderPref" />
+            <TextField source="alamat_cust" />
+            <TextField source="addressNote" />
             <SelectField source="kotaId" choices={[
                 { id: 1, name: 'Semarang' },
                 { id: 2, name: 'Solo' },
