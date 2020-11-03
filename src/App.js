@@ -31,7 +31,7 @@ const options = {
   logging: true,
   rootRef: ''
 }
-const trackedResources = [{ name: 'users' }, { name: 'order' }, { name: 'saldo' }, { name: 'voucher' }];
+const trackedResources = [{ name: 'users' }, { name: 'order' }, { name: 'saldo' }, { name: 'voucher' }, { name: 'kota' }];
 
 const dataProvider = RestProvider(config, { trackedResources });
 const authProvider = AuthProvider(config, options);
