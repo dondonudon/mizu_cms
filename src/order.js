@@ -146,6 +146,10 @@ export const OrderShow = (props) => (
                 { id: 1, name: 'Semarang' },
                 { id: 2, name: 'Solo' },
                 { id: 3, name: 'Yogyakarta' },
+                { id: 4, name: 'Surabaya' },
+                { id: 5, name: 'Jabodetabek' },
+                { id: 6, name: 'Bandung' },
+                { id: 7, name: 'Medan' },
             ]} />
             <TextField source="kodepos" />
             <SelectField source="status" choices={[
@@ -160,11 +164,11 @@ export const OrderShow = (props) => (
                 { id: 8, name: 'Cancel Customer' },
                 { id: 9, name: 'Batal Pesan' },
             ]} />
-            <TextField source="time_order" />
-            <TextField source="time_service" />
-            <TextField source="time_otw" />
-            <TextField source="time_start" />
-            <TextField source="time_finish" />
+            <DateField source="time_order" showTime locales="en-gb" />
+            <DateField source="time_service" showTime locales="en-gb" />
+            <DateField source="time_otw" showTime locales="en-gb" />
+            <DateField source="time_start" showTime locales="en-gb" />
+            <DateField source="time_finish" showTime locales="en-gb" />
         </SimpleShowLayout>
     </Show>
 );
