@@ -44,17 +44,27 @@ const UserFilter = (props) => (
     <TextInput label="SPID" source="spid" alwaysOn />
     <TextInput label="No HP" source="noHp" alwaysOn />
     {/* <NumberInput label="Saldo" source="saldo" /> */}
-    <SelectInput source="city" label="Kota" alwaysOn allowEmpty choices={[
+    <SelectInput source="city" label="Kota" allowEmpty choices={[
       { id: 1, name: 'Semarang' },
       { id: 2, name: 'Solo' },
       { id: 3, name: 'Yogyakarta' },
+      { id: 4, name: 'Surabaya' },
+      { id: 5, name: 'Jabodetabek' },
+      { id: 6, name: 'Bandung' },
+      { id: 7, name: 'Medan' },
     ]} />
-    <SelectInput source="vertical" alwaysOn allowEmpty choices={[
+    <SelectInput source="vertical" allowEmpty choices={[
       { id: 1, name: 'Massage' },
       { id: 2, name: 'Clean' },
       { id: 3, name: 'Auto' },
       { id: 4, name: 'Fix' },
       { id: 5, name: 'Glam' },
+    ]} />
+    <SelectInput source="bp" label="Bussiness Partner" allowEmpty choices={[
+      { id: 'MIZLF', name: 'MIZLF' },
+      { id: 'LONRI', name: 'LONRI' },
+      { id: 'AJENG', name: 'AJENG' },
+      { id: 'KIARA', name: 'KIARA' },
     ]} />
   </Filter>
 );
@@ -97,6 +107,7 @@ export const UserShow = (props) => (
       <TextField source="spid" />
       <TextField source="noHp" />
       <EmailField source="email_" />
+      <TextField source="bp" />
       <TextField source="name" />
       <TextField source="saldo" />
       <SelectField source="gender" choices={[
@@ -114,6 +125,10 @@ export const UserShow = (props) => (
         { id: 1, name: 'Semarang' },
         { id: 2, name: 'Solo' },
         { id: 3, name: 'Yogyakarta' },
+        { id: 4, name: 'Surabaya' },
+        { id: 5, name: 'Jabodetabek' },
+        { id: 6, name: 'Bandung' },
+        { id: 7, name: 'Medan' },
       ]} />
       <TextField source="nik" />
       <TextField source="alamat" />
@@ -133,6 +148,12 @@ export const UserCreate = (props) => (
       <TextInput source="noHp" label="No HP" validate={[required()]} />
       <PasswordInput source="password" validate={[required()]} />
       <TextInput source="email_" type="email" validate={[required()]} />
+      <SelectInput source="bp" label="Bussiness Partner" choices={[
+        { id: 'MIZLF', name: 'MIZLF' },
+        { id: 'LONRI', name: 'LONRI' },
+        { id: 'AJENG', name: 'AJENG' },
+        { id: 'KIARA', name: 'KIARA' },
+      ]} />
       <TextInput source="name" validate={[required()]} />
       <SelectInput source="gender" validate={[required()]} choices={[
         { id: 'L', name: 'Laki-Laki' },
@@ -142,6 +163,10 @@ export const UserCreate = (props) => (
         { id: 1, name: 'Semarang' },
         { id: 2, name: 'Solo' },
         { id: 3, name: 'Yogyakarta' },
+        { id: 4, name: 'Surabaya' },
+        { id: 5, name: 'Jabodetabek' },
+        { id: 6, name: 'Bandung' },
+        { id: 7, name: 'Medan' },
       ]} />
       <SelectInput source="vertical" label="Vertical" validate={[required()]} choices={[
         { id: 1, name: 'Massage' },
@@ -174,6 +199,12 @@ export const UserEdit = (props) => (
         <TextInput source="noHp" label="No HP" />
         <PasswordInput source="password" validate={[required()]} />
         <TextInput source="email_" type="email" />
+        <SelectInput source="bp" label="Bussiness Partner" choices={[
+          { id: 'MIZLF', name: 'MIZLF' },
+          { id: 'LONRI', name: 'LONRI' },
+          { id: 'AJENG', name: 'AJENG' },
+          { id: 'KIARA', name: 'KIARA' },
+        ]} />
         <TextInput source="name" />
         <SelectInput source="gender" choices={[
           { id: 'L', name: 'Laki-Laki' },
@@ -183,6 +214,10 @@ export const UserEdit = (props) => (
           { id: 1, name: 'Semarang' },
           { id: 2, name: 'Solo' },
           { id: 3, name: 'Yogyakarta' },
+          { id: 4, name: 'Surabaya' },
+          { id: 5, name: 'Jabodetabek' },
+          { id: 6, name: 'Bandung' },
+          { id: 7, name: 'Medan' },
         ]} />
         <SelectInput source="vertical" label="Vertical" choices={[
           { id: 1, name: 'Massage' },
