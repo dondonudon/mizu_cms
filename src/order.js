@@ -30,40 +30,41 @@ import {
     TopToolbar,
     sanitizeListRestProps,
     // Button
-    // DateInput
+    DateInput,
+    // DateTimeInput
 } from "react-admin";
 import RichTextInput from "ra-input-rich-text";
 // import { unparse as convertToCSV } from 'papaparse/papaparse.min';
 // import IconEvent from '@material-ui/icons/Event';
 
 
-const ListActions = (props) => {
-    const {
-        className,
-        exporter,
-        filters,
-        maxResults,
-        ...rest
-    } = props;
-    const {
-        currentSort,
-        resource,
-        filterValues,
-        total,
-    } = useListContext();
-    return (
-        <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
-            <ExportButton
-                delimiter={"/"}
-                disabled={total === 0}
-                resource={resource}
-                sort={currentSort}
-                filterValues={filterValues}
-                maxResults={maxResults}
-            />
-        </TopToolbar>
-    );
-};
+// const ListActions = (props) => {
+//     const {
+//         className,
+//         exporter,
+//         filters,
+//         maxResults,
+//         ...rest
+//     } = props;
+//     const {
+//         currentSort,
+//         resource,
+//         filterValues,
+//         total,
+//     } = useListContext();
+//     return (
+//         <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
+//             <ExportButton
+//                 delimiter={"/"}
+//                 disabled={total === 0}
+//                 resource={resource}
+//                 sort={currentSort}
+//                 filterValues={filterValues}
+//                 maxResults={maxResults}
+//             />
+//         </TopToolbar>
+//     );
+// };
 
 const OrderFilter = (props) => (
     <Filter context="order_id"  {...props}>
@@ -81,12 +82,22 @@ const OrderFilter = (props) => (
             { id: 8, name: 'Cancel Customer' },
             { id: 9, name: 'Batal Pesan' },
         ]} />
+        <SelectInput source="kotaId" alwaysOn allowEmpty choices={[
+            { id: 1, name: 'Semarang' },
+            { id: 2, name: 'Solo' },
+            { id: 3, name: 'Yogyakarta' },
+            { id: 4, name: 'Surabaya' },
+            { id: 5, name: 'Jabodetabek' },
+            { id: 6, name: 'Bandung' },
+            { id: 7, name: 'Medan' },
+        ]} />
+        {/* <DateInput source="time_order" /> */}
     </Filter>
 );
 
 export const OrderList = (props) => (
     <List {...props}
-        actions={<ListActions />}
+        // actions={<ListActions />}
         filters={<OrderFilter />}
         bulkActionButtons={false}
         sort={{ field: 'time_order', order: 'DESC' }}
@@ -112,6 +123,15 @@ export const OrderList = (props) => (
                 { id: 7, name: 'Cancel Mitra' },
                 { id: 8, name: 'Cancel Customer' },
                 { id: 9, name: 'Batal Pesan' },
+            ]} />
+            <SelectField source="kotaId" choices={[
+                { id: 1, name: 'Semarang' },
+                { id: 2, name: 'Solo' },
+                { id: 3, name: 'Yogyakarta' },
+                { id: 4, name: 'Surabaya' },
+                { id: 5, name: 'Jabodetabek' },
+                { id: 6, name: 'Bandung' },
+                { id: 7, name: 'Medan' },
             ]} />
             <DateField source="time_order" showTime locales="en-gb" />
             {/* <TextField source="time_order" /> */}
@@ -164,7 +184,7 @@ export const OrderShow = (props) => (
                 { id: 8, name: 'Cancel Customer' },
                 { id: 9, name: 'Batal Pesan' },
             ]} />
-            <DateField source="time_order" showTime locales="en-gb" />
+            <TextField source="time_order" />
             <DateField source="time_service" showTime locales="en-gb" />
             <DateField source="time_otw" showTime locales="en-gb" />
             <DateField source="time_start" showTime locales="en-gb" />
