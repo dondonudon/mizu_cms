@@ -30,7 +30,7 @@ import {
     TopToolbar,
     sanitizeListRestProps,
     // Button
-    DateInput,
+    // DateInput,
     // DateTimeInput
 } from "react-admin";
 import RichTextInput from "ra-input-rich-text";
@@ -38,33 +38,33 @@ import RichTextInput from "ra-input-rich-text";
 // import IconEvent from '@material-ui/icons/Event';
 
 
-// const ListActions = (props) => {
-//     const {
-//         className,
-//         exporter,
-//         filters,
-//         maxResults,
-//         ...rest
-//     } = props;
-//     const {
-//         currentSort,
-//         resource,
-//         filterValues,
-//         total,
-//     } = useListContext();
-//     return (
-//         <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
-//             <ExportButton
-//                 delimiter={"/"}
-//                 disabled={total === 0}
-//                 resource={resource}
-//                 sort={currentSort}
-//                 filterValues={filterValues}
-//                 maxResults={maxResults}
-//             />
-//         </TopToolbar>
-//     );
-// };
+const ListActions = (props) => {
+    const {
+        className,
+        exporter,
+        filters,
+        maxResults,
+        ...rest
+    } = props;
+    const {
+        currentSort,
+        resource,
+        filterValues,
+        total,
+    } = useListContext();
+    return (
+        <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
+            <ExportButton
+                delimiter={"/"}
+                disabled={total === 0}
+                resource={resource}
+                sort={currentSort}
+                filterValues={filterValues}
+                maxResults={10000000000}
+            />
+        </TopToolbar>
+    );
+};
 
 const OrderFilter = (props) => (
     <Filter context="order_id"  {...props}>
@@ -97,7 +97,7 @@ const OrderFilter = (props) => (
 
 export const OrderList = (props) => (
     <List {...props}
-        // actions={<ListActions />}
+        actions={<ListActions />}
         filters={<OrderFilter />}
         bulkActionButtons={false}
         sort={{ field: 'time_order', order: 'DESC' }}
