@@ -150,7 +150,9 @@ export const OrderShow = (props) => (
             <TextField source="order_id" />
             <TextField source="email_cust" />
             <TextField source="namaMitra" />
+            <TextField source="noHpMitra" />
             <TextField source="namaCust" />
+            <TextField source="noHpCust" />
             <TextField source="spid" />
             <TextField source="serviceName" />
             <TextField source="timer" />
