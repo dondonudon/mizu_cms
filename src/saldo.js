@@ -30,6 +30,7 @@ import {
 const SaldoFilter = (props) => (
     <Filter {...props}>
         <TextInput label="SPID" source="spid" alwaysOn />
+        <TextInput label="Order ID" source="orderId" />
         <SelectInput source="type" alwaysOn allowEmpty choices={[
             { id: 'CR', name: 'Credit' },
             { id: 'DB', name: 'Debit' },
