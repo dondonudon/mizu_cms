@@ -186,7 +186,7 @@ export const OrderShow = (props) => (
                 { id: 8, name: 'Cancel Customer' },
                 { id: 9, name: 'Batal Pesan' },
             ]} />
-            <TextField source="time_order" />
+            <DateField source="time_order" showTime locales="en-gb" />
             <DateField source="time_service" showTime locales="en-gb" />
             <DateField source="time_otw" showTime locales="en-gb" />
             <DateField source="time_start" showTime locales="en-gb" />
