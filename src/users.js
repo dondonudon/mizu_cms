@@ -52,6 +52,7 @@ const UserFilter = (props) => (
       { id: 5, name: 'Jabodetabek' },
       { id: 6, name: 'Bandung' },
       { id: 7, name: 'Medan' },
+      { id: 8, name: 'Denpasar' },
     ]} />
     <SelectInput source="vertical" allowEmpty choices={[
       { id: 1, name: 'Massage' },
@@ -64,7 +65,12 @@ const UserFilter = (props) => (
       { id: 'MIZLF', name: 'MIZLF' },
       { id: 'LONRI', name: 'LONRI' },
       { id: 'AJENG', name: 'AJENG' },
-      { id: 'KIARA', name: 'KIARA' },
+      { id: 'KRANA', name: 'KRANA' },
+      { id: 'NABIL', name: 'NABIL' },
+      { id: 'MRWAN', name: 'MRWAN' },
+      { id: 'BRKAH', name: 'BRKAH' },
+      { id: 'KIZEN', name: 'KIZEN' },
+      { id: 'TMBRA', name: 'TMBRA' },
     ]} />
   </Filter>
 );
@@ -129,6 +135,7 @@ export const UserShow = (props) => (
         { id: 5, name: 'Jabodetabek' },
         { id: 6, name: 'Bandung' },
         { id: 7, name: 'Medan' },
+        { id: 8, name: 'Denpasar' },
       ]} />
       <TextField source="nik" />
       <TextField source="alamat" />
@@ -152,7 +159,12 @@ export const UserCreate = (props) => (
         { id: 'MIZLF', name: 'MIZLF' },
         { id: 'LONRI', name: 'LONRI' },
         { id: 'AJENG', name: 'AJENG' },
-        { id: 'KIARA', name: 'KIARA' },
+        { id: 'KRANA', name: 'KRANA' },
+        { id: 'NABIL', name: 'NABIL' },
+        { id: 'MRWAN', name: 'MRWAN' },
+        { id: 'BRKAH', name: 'BRKAH' },
+        { id: 'KIZEN', name: 'KIZEN' },
+        { id: 'TMBRA', name: 'TMBRA' },
       ]} />
       <TextInput source="name" validate={[required()]} />
       <SelectInput source="gender" validate={[required()]} choices={[
@@ -167,6 +179,7 @@ export const UserCreate = (props) => (
         { id: 5, name: 'Jabodetabek' },
         { id: 6, name: 'Bandung' },
         { id: 7, name: 'Medan' },
+        { id: 8, name: 'Denpasar' },
       ]} />
       <SelectInput source="vertical" label="Vertical" validate={[required()]} choices={[
         { id: 1, name: 'Massage' },
@@ -203,7 +216,12 @@ export const UserEdit = (props) => (
           { id: 'MIZLF', name: 'MIZLF' },
           { id: 'LONRI', name: 'LONRI' },
           { id: 'AJENG', name: 'AJENG' },
-          { id: 'KIARA', name: 'KIARA' },
+          { id: 'KRANA', name: 'KRANA' },
+          { id: 'NABIL', name: 'NABIL' },
+          { id: 'MRWAN', name: 'MRWAN' },
+          { id: 'BRKAH', name: 'BRKAH' },
+          { id: 'KIZEN', name: 'KIZEN' },
+          { id: 'TMBRA', name: 'TMBRA' },
         ]} />
         <TextInput source="name" />
         <SelectInput source="gender" choices={[
@@ -218,6 +236,7 @@ export const UserEdit = (props) => (
           { id: 5, name: 'Jabodetabek' },
           { id: 6, name: 'Bandung' },
           { id: 7, name: 'Medan' },
+          { id: 8, name: 'Denpasar' },
         ]} />
         <SelectInput source="vertical" label="Vertical" choices={[
           { id: 1, name: 'Massage' },
