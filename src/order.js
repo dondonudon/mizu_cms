@@ -90,6 +90,7 @@ const OrderFilter = (props) => (
             { id: 5, name: 'Jabodetabek' },
             { id: 6, name: 'Bandung' },
             { id: 7, name: 'Medan' },
+            { id: 8, name: 'Denpasar' },
         ]} />
         {/* <DateInput source="time_order" /> */}
     </Filter>
@@ -132,6 +133,7 @@ export const OrderList = (props) => (
                 { id: 5, name: 'Jabodetabek' },
                 { id: 6, name: 'Bandung' },
                 { id: 7, name: 'Medan' },
+                { id: 8, name: 'Denpasar' },
             ]} />
             <DateField source="time_order" showTime locales="en-gb" />
             {/* <TextField source="time_order" /> */}
@@ -172,6 +174,7 @@ export const OrderShow = (props) => (
                 { id: 5, name: 'Jabodetabek' },
                 { id: 6, name: 'Bandung' },
                 { id: 7, name: 'Medan' },
+                { id: 8, name: 'Denpasar' },
             ]} />
             <TextField source="kodepos" />
             <SelectField source="status" choices={[
