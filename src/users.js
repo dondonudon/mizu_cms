@@ -71,6 +71,7 @@ const UserFilter = (props) => (
       { id: 'BRKAH', name: 'BRKAH' },
       { id: 'KIZEN', name: 'KIZEN' },
       { id: 'TMBRA', name: 'TMBRA' },
+      { id: 'RAJAW', name: 'RAJAW' },
     ]} />
   </Filter>
 );
@@ -165,6 +166,7 @@ export const UserCreate = (props) => (
         { id: 'BRKAH', name: 'BRKAH' },
         { id: 'KIZEN', name: 'KIZEN' },
         { id: 'TMBRA', name: 'TMBRA' },
+        { id: 'RAJAW', name: 'RAJAW' },
       ]} />
       <TextInput source="name" validate={[required()]} />
       <SelectInput source="gender" validate={[required()]} choices={[
@@ -222,6 +224,7 @@ export const UserEdit = (props) => (
           { id: 'BRKAH', name: 'BRKAH' },
           { id: 'KIZEN', name: 'KIZEN' },
           { id: 'TMBRA', name: 'TMBRA' },
+          { id: 'RAJAW', name: 'RAJAW' },
         ]} />
         <TextInput source="name" />
         <SelectInput source="gender" choices={[
