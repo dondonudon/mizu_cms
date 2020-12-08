@@ -53,6 +53,7 @@ const UserFilter = (props) => (
       { id: 6, name: 'Bandung' },
       { id: 7, name: 'Medan' },
       { id: 8, name: 'Denpasar' },
+      { id: 9, name: 'Balikpapan' },
     ]} />
     <SelectInput source="vertical" allowEmpty choices={[
       { id: 1, name: 'Massage' },
@@ -72,6 +73,7 @@ const UserFilter = (props) => (
       { id: 'KIZEN', name: 'KIZEN' },
       { id: 'TMBRA', name: 'TMBRA' },
       { id: 'RAJAW', name: 'RAJAW' },
+      { id: 'KLENT', name: 'KLENT' },
     ]} />
   </Filter>
 );
@@ -137,6 +139,7 @@ export const UserShow = (props) => (
         { id: 6, name: 'Bandung' },
         { id: 7, name: 'Medan' },
         { id: 8, name: 'Denpasar' },
+        { id: 9, name: 'Balikpapan' },
       ]} />
       <TextField source="nik" />
       <TextField source="alamat" />
@@ -167,6 +170,7 @@ export const UserCreate = (props) => (
         { id: 'KIZEN', name: 'KIZEN' },
         { id: 'TMBRA', name: 'TMBRA' },
         { id: 'RAJAW', name: 'RAJAW' },
+        { id: 'KLENT', name: 'KLENT' },
       ]} />
       <TextInput source="name" validate={[required()]} />
       <SelectInput source="gender" validate={[required()]} choices={[
@@ -182,6 +186,7 @@ export const UserCreate = (props) => (
         { id: 6, name: 'Bandung' },
         { id: 7, name: 'Medan' },
         { id: 8, name: 'Denpasar' },
+        { id: 9, name: 'Balikpapan' },
       ]} />
       <SelectInput source="vertical" label="Vertical" validate={[required()]} choices={[
         { id: 1, name: 'Massage' },
@@ -225,6 +230,7 @@ export const UserEdit = (props) => (
           { id: 'KIZEN', name: 'KIZEN' },
           { id: 'TMBRA', name: 'TMBRA' },
           { id: 'RAJAW', name: 'RAJAW' },
+          { id: 'KLENT', name: 'KLENT' },
         ]} />
         <TextInput source="name" />
         <SelectInput source="gender" choices={[
@@ -240,6 +246,7 @@ export const UserEdit = (props) => (
           { id: 6, name: 'Bandung' },
           { id: 7, name: 'Medan' },
           { id: 8, name: 'Denpasar' },
+          { id: 9, name: 'Balikpapan' },
         ]} />
         <SelectInput source="vertical" label="Vertical" choices={[
           { id: 1, name: 'Massage' },
