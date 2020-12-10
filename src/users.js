@@ -54,6 +54,7 @@ const UserFilter = (props) => (
       { id: 7, name: 'Medan' },
       { id: 8, name: 'Denpasar' },
       { id: 9, name: 'Balikpapan' },
+      { id: 15, name: 'Banten' },
     ]} />
     <SelectInput source="vertical" allowEmpty choices={[
       { id: 1, name: 'Massage' },
@@ -140,6 +141,7 @@ export const UserShow = (props) => (
         { id: 7, name: 'Medan' },
         { id: 8, name: 'Denpasar' },
         { id: 9, name: 'Balikpapan' },
+        { id: 15, name: 'Banten' },
       ]} />
       <TextField source="nik" />
       <TextField source="alamat" />
@@ -187,6 +189,7 @@ export const UserCreate = (props) => (
         { id: 7, name: 'Medan' },
         { id: 8, name: 'Denpasar' },
         { id: 9, name: 'Balikpapan' },
+        { id: 15, name: 'Banten' },
       ]} />
       <SelectInput source="vertical" label="Vertical" validate={[required()]} choices={[
         { id: 1, name: 'Massage' },
@@ -247,6 +250,7 @@ export const UserEdit = (props) => (
           { id: 7, name: 'Medan' },
           { id: 8, name: 'Denpasar' },
           { id: 9, name: 'Balikpapan' },
+          { id: 15, name: 'Banten' },
         ]} />
         <SelectInput source="vertical" label="Vertical" choices={[
           { id: 1, name: 'Massage' },
