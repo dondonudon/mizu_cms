@@ -102,6 +102,7 @@ const OrderFilter = (props) => (
             { id: 21, name: 'Padang' },
             { id: 22, name: 'Mataram' },
             { id: 23, name: 'Jambi' },
+            { id: 24, name: 'Magelang' },
         ]} />
         <SelectInput source="qrCode" alwaysOn allowEmpty choices={[
             { id: 1, name: 'QR' },
@@ -160,6 +161,7 @@ export const OrderList = (props) => (
                 { id: 21, name: 'Padang' },
                 { id: 22, name: 'Mataram' },
                 { id: 23, name: 'Jambi' },
+                { id: 24, name: 'Magelang' },
             ]} />
             <DateField source="time_order" showTime locales="en-gb" />
             {/* <TextField source="time_order" /> */}
@@ -212,6 +214,7 @@ export const OrderShow = (props) => (
                 { id: 21, name: 'Padang' },
                 { id: 22, name: 'Mataram' },
                 { id: 23, name: 'Jambi' },
+                { id: 24, name: 'Magelang' },
             ]} />
             <TextField source="kodepos" />
             <SelectField source="status" choices={[
