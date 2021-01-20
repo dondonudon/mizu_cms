@@ -32,12 +32,44 @@ import {
   EmailField,
   TabbedForm,
   FormTab,
+  ExportButton,
+  useListContext,
+  TopToolbar,
+  sanitizeListRestProps,
   // FileField,
   // ImageInput,
   // ImageField,
   // DateField
 } from "react-admin";
 // import RichTextInput from "ra-input-rich-text";
+
+const ListActions = (props) => {
+  const {
+    className,
+    exporter,
+    filters,
+    maxResults,
+    ...rest
+  } = props;
+  const {
+    currentSort,
+    resource,
+    filterValues,
+    total,
+  } = useListContext();
+  return (
+    <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
+      <ExportButton
+        delimiter={"/"}
+        disabled={total === 0}
+        resource={resource}
+        sort={currentSort}
+        filterValues={filterValues}
+        maxResults={10000000000}
+      />
+    </TopToolbar>
+  );
+};
 
 const UserFilter = (props) => (
   <Filter {...props}>
@@ -102,6 +134,7 @@ const UserEditToolbar = props => (
 export const UserList = (props) => (
   <List {...props}
     filters={<UserFilter />}
+    actions={<ListActions />}
     filterDefaultValues={{ type: 'mitra' }}
     bulkActionButtons={false}
     sort={{ field: 'spid', order: 'DESC' }}
